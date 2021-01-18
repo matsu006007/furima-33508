@@ -17,8 +17,7 @@
 
 - has_many :items
 - has_many :comments
-- has_one  :payments
--has_many  :buyers
+- has_many  :buyers
 
 ## items テーブル
 
@@ -33,12 +32,10 @@
 | ship_region_id         | integer     | null: false       |
 | ship_date_id           | integer     | null: false       |
 | user                | references | foreign_key: true |
-| payment             | references | foreign_key: true |
 
 ### Association
 
 - belongs_to :user
-- belongs_to :payment
 - has_many :comments
 - has_one :buyer
 
@@ -65,24 +62,25 @@
 | block               | string     | null: false       |
 | building            | string     |        |
 | phone               | string    | null: false       |
-| user                | references | foreign_key: true |
+| buyer                | references | foreign_key: true |
 
  ### Association
 
- - belongs_to :user
- - has_many :items
+ - has_one :buyer
+
 
  ## buyers テーブル
 
 | CoLumn              | Type        | Options          |
 | ------------------- | ----------- | ---------------- |
-| date_purchased      | date        | null: false      |
 | user                | references | foreign_key: true |
 | item                | references | foreign_key: true |
+| payment             | references | foreign_key: true |
 
 ### Association
 
 - belongs_to :user
 - belongs_to :item
+- belongs_to :payment
 
 
