@@ -66,7 +66,7 @@
 
  ### Association
 
- - has_one :buyer
+ - belongs_to :buyer
 
 
  ## buyers テーブル
@@ -75,12 +75,11 @@
 | ------------------- | ----------- | ---------------- |
 | user                | references | foreign_key: true |
 | item                | references | foreign_key: true |
-| payment             | references | foreign_key: true |
 
 ### Association
 
 - belongs_to :user
 - belongs_to :item
-- belongs_to :payment
+- has_one :payment
 
 
