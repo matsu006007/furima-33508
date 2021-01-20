@@ -39,6 +39,12 @@ RSpec.describe User, type: :model do
         @user.valid?
         expect(@user.errors.full_messages).to include("Password can't be blank", 'Password is invalid')
       end
+      it 'passwordが全角の場合は登録できない' do
+        @user.password = "１１１ａａａ"
+        @user.password_confirmation = "１１１ａａａ"
+        @user.valid?
+        expect(@user.errors.full_messages).to include("Password is invalid")
+      end
       it 'passwordが5文字以下では登録できない' do
         @user.password = '111aa'
         @user.password_confirmation = '111aa'
