@@ -4,6 +4,7 @@ class ItemsController < ApplicationController
   end
 
   def new
+    authenticate_user!
     @item = Item.new
   end
 
@@ -20,7 +21,7 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:product_name, :product_description, :price, :category_id, :product_status_id, :freight_id, :ship_region_id, :ship_date_id).merge(user_id: current_user.id)
+    params.require(:item).permit(:product_name, :product_description, :price, :category_id, :product_status_id, :freight_id, :ship_region_id, :ship_date_id, :image).merge(user_id: current_user.id)
   end
 
 end
