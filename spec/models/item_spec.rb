@@ -35,7 +35,7 @@ RSpec.describe Item, type: :model do
       it 'カテゴリーの情報が空では出品できない' do
         @item.category_id = nil
         @item.valid?
-        expect(@item.errors.full_messages).to include("Category can't be blank", "Category is not a number")
+        expect(@item.errors.full_messages).to include("Category can't be blank")
       end
       it '商品の状態についての情報のidが１では出品できない' do
         @item.product_status_id = 1
@@ -45,7 +45,7 @@ RSpec.describe Item, type: :model do
       it '商品の状態についての情報が空では出品できない' do
         @item.product_status_id = nil
         @item.valid?
-        expect(@item.errors.full_messages).to include("Product status can't be blank", "Product status is not a number")
+        expect(@item.errors.full_messages).to include("Product status can't be blank")
       end
       it '配送料の負担についての情報のidが１では出品できない' do
         @item.freight_id = 1
@@ -55,7 +55,7 @@ RSpec.describe Item, type: :model do
       it '配送料の負担についての情報が空では出品できない' do
         @item.freight_id = nil
         @item.valid?
-        expect(@item.errors.full_messages).to include("Freight can't be blank", "Freight is not a number")
+        expect(@item.errors.full_messages).to include("Freight can't be blank")
       end
       it '発送元の地域についての情報のidが１では出品できない' do
         @item.ship_region_id = 1
@@ -65,7 +65,7 @@ RSpec.describe Item, type: :model do
       it '発送元の地域についての情報が空では出品できない' do
         @item.ship_region_id = nil
         @item.valid?
-        expect(@item.errors.full_messages).to include("Ship region can't be blank", "Ship region is not a number")
+        expect(@item.errors.full_messages).to include("Ship region can't be blank")
       end
       it '発送までの日数についての情報のidが１では出品できない' do
         @item.ship_date_id = 1
@@ -75,12 +75,12 @@ RSpec.describe Item, type: :model do
       it '発送までの日数についての情報が空では出品できない' do
         @item.ship_date_id = nil
         @item.valid?
-        expect(@item.errors.full_messages).to include("Ship date can't be blank", "Ship date is not a number")
+        expect(@item.errors.full_messages).to include("Ship date can't be blank")
       end
       it '価格についての情報が空では出品できない' do
         @item.price = nil
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price can't be blank", 'Price is invalid', 'Price Out of setting range')
+        expect(@item.errors.full_messages).to include("Price can't be blank")
       end
       it '価格が¥300以下では出品できない' do
         @item.price = 100
