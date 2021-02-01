@@ -57,7 +57,7 @@
 | CoLumn              | Type       | Options           |
 | ------------------- | ---------- | ----------------- |
 | post_code           | string    | null: false       |
-| prefecture_id          | integer     | null: false       |
+| ship_region_id          | integer     | null: false       |
 | city                | string     | null: false       |
 | block               | string     | null: false       |
 | building            | string     |        |
