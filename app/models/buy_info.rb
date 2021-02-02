@@ -1,6 +1,6 @@
 class BuyInfo
   include ActiveModel::Model
-  attr_accessor :post_code, :ship_region_id, :city, :block, :building, :phone, :user_id, :item_id
+  attr_accessor :post_code, :ship_region_id, :city, :block, :building, :phone, :user_id, :item_id, :token
   with_options presence: true do
     validates :post_code,  format: {with: /\A[0-9\d]{3}-[0-9\d]{4}\z/}
     validates :city
@@ -9,6 +9,7 @@ class BuyInfo
     validates :ship_region_id, numericality: { other_than: 1 }
     validates :user_id
     validates :item_id
+    validates :token
   end
 
   def save
