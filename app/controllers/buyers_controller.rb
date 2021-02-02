@@ -1,9 +1,14 @@
 class BuyersController < ApplicationController
+  before_action :authenticate_user!
   before_action :item_data
   
 
   def index
-    @buy_info = BuyInfo.new
+    if @item.user == current_user
+      redirect_to root_path
+    else
+      @buy_info = BuyInfo.new
+    end
   end
 
   def create
