@@ -24,7 +24,7 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    if @item.user == current_user &&  !@item.buyer.present?
+    if @item.user == current_user && !@item.buyer.present?
       render :edit
     else
       redirect_to root_path
@@ -35,7 +35,7 @@ class ItemsController < ApplicationController
     if @item.user == current_user
       @item.update(item_params)
       redirect_to root_path
-    else 
+    else
       render :edit
     end
   end
