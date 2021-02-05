@@ -63,7 +63,7 @@ RSpec.describe BuyInfo, type: :model do
       it '電話番号にハイフンが含まれていると商品を購入できない' do
         @buy_info.phone = '090-1234-1234'
         @buy_info.valid?
-        expect(@buy_info.errors.full_messages).to include("Phone is invalid")
+        expect(@buy_info.errors.full_messages).to include('Phone is invalid')
       end
       it 'user_idが空では商品を購入できない' do
         @buy_info.user_id = nil
